@@ -19,6 +19,8 @@ error_reporting(E_ALL);
 echo "Setting paths... \n";
 define('OCI_PATH', realpath(dirname(__FILE__)));
 set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__.'/../');
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__.'/../Broadworks_OCIP/core/');
 
 
 echo "Setting spl_autoload_register... \n";
@@ -32,13 +34,13 @@ spl_autoload_register(function ($c) {
 echo "Include path is ....\n";
 echo get_include_path() . "\n";
 
-echo "Testing auto load of CoreFactory...\n";
-if(class_exists('CoreFactory')) {
-    echo "Yes it exists!\n";
-} else {
-    echo "No, I can't find it\n";
-    exit(1);
-}
+#echo "Testing auto load of CoreFactory...\n";
+#if(class_exists('CoreFactory')) {
+#    echo "Yes it exists!\n";
+#} else {
+#    echo "No, I can't find it\n";
+#    exit(1);
+#}
 
 echo "Testing CoreFactory... \n";
 $errorControl = CoreFactory::test();
