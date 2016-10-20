@@ -25,7 +25,7 @@ echo "Setting spl_autoload_register... \n";
 spl_autoload_register(function ($c) {
     echo "Trying autoloader with $c\n";
     $newC = preg_replace('#\\\|_(?!.*\\\)#', '/', $c) . '.php';
-    echo "Trying to require_once $newC";
+    echo "Trying to require_once $newC\n";
     require_once("$newC");
 });
 
@@ -34,7 +34,7 @@ echo get_include_path() . "\n";
 
 echo "Testing auto load of CoreFactory...\n";
 if(class_exists('CoreFactory')) {
-    echo "Yes it exists\n";
+    echo "Yes it exists!\n";
 } else {
     echo "No, I can't find it\n";
     exit(1);
