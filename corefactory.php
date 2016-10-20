@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
  *
@@ -18,8 +20,17 @@ use Broadworks_OCIP\core\Session\Session;
 
 class CoreFactory
 {
+
+    public static function test()
+    {
+        echo "Core Factory loaded...\n";
+        return TRUE;
+    }
+
+
     public static function &getErrorControl()
     {
+        echo "Getting ErrorControl.php...\n";
         require_once(OCI_PATH . "/core/Logging/ErrorControl.php");
         static $instance;
         if (!is_object($instance)) {
